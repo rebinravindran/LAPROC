@@ -1,0 +1,43 @@
+
+{% extends 'admin.html' %}
+
+{% block admin %}
+<style>
+    table{
+        color: white;
+        width :100%; 
+        background-color:black;
+        text-align: center;
+        font-family: cursive;
+    }
+</style>  
+    <table border="2" >
+        <tr>
+            <th>PRODUCT ID</th>
+            <th>BRAND NAME</th>
+            <th>PRODUCT NAME</th>
+            <th>MODEL NAME</th>
+            <th>FEATURES</th>
+            <th>CATEGORY</th>
+            <th>PRICE</th>
+            <th>STOCK</th>
+            <th>IMAGE</th>
+            <th colspan="2">ACTION</th>
+        </tr> 
+        {% for i in data %}
+        <tr>
+            <td>{{i.id}}</td>         
+            <td>{{i.brand_name}}</td>
+            <td>{{i.product_name}}</td>
+            <td>{{i.model_name}}</td>
+            <td>{{i.Features}}</td>
+            <td>{{i.category}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.stocks}}</td>
+            <td><img src="{{i.image.url}}" alt="" style="height: 120px;width: 120px;"></td>
+            <td><button type="button" class="btn btn-warning"><a href="edititemss/{{i.id}}">EDIT</a></button></td>
+            <td><button type="button" class="btn btn-danger"><a href="deleteitemss/{{i.id}}">DELETE</a></button></td>
+        </tr>
+        {% endfor %} 
+    </table>
+{% endblock admin %}

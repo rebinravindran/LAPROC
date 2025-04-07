@@ -1,0 +1,48 @@
+
+{% extends 'admin.html' %}
+
+{% block admin %}
+<style>
+    table{
+        color: white;
+        width :100%; 
+        background-color:black;
+        text-align: center;
+        font-family: cursive;
+    }
+    th, td {
+
+            padding: 8px;
+            text-align: center; /* Center text horizontally */
+        }
+</style>  
+
+    <table border="3">
+        <tr>
+            <th>SELLER ID</th>
+            <th>NAME</th>
+            <th>MOBILE</th>
+            <th>Email</th>
+            <th>LOCATION</th>
+            <th colspan="3">ACTION</th>
+
+        </tr>
+        
+        {% for i in data %}
+        <tr>          
+            <td>{{i.id}}</td>
+            <td>{{i.sname}}</td>
+            <td>{{i.smobile}}</td>
+            <td>{{i.semail}}</td>
+            <td>{{i.slocation}}</td>
+            <td><button  class="btn btn-warning"><a href="eddfdteach/{{i.id}}">Products</a></button></td>
+            <td><button  class="btn btn-danger"><a href="removeseller/{{i.id}}">REMOVE</a></button></td>
+
+
+            
+
+        </tr>
+        {% endfor %}
+        
+    </table>
+{% endblock admin %}

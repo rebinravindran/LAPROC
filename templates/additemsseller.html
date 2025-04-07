@@ -1,0 +1,110 @@
+{% extends 'sellerpage.html' %}
+
+{% block admin %}
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container1 {
+  padding-top: 10px;
+  padding-left: 125px;
+  background-color: rgb(255, 255, 255);
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=file] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #ddd;
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+
+/* Set a style for the submit button */
+.registerbtn {
+
+  padding-left: 50px;
+  background-color: #000000;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+
+  width: 20%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  background-color: crimson;
+  border-radius: 60px;
+  
+}
+
+/* Add a blue text color to links */
+
+.cont{width:60%;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+
+</style>
+		
+            <div class="cont" style="color: #000000;">
+                <form action="" method="post" enctype="multipart/form-data">
+					        {% csrf_token %}
+
+                  <div class="container1">
+                    <label for="Brand"><b>Brand name</b></label>
+                    <input type="text" placeholder="Enter Brand" name="Brand" id="Brand" required> 
+                
+                    <label for="Product"><b>Product name</b></label>
+                    <input type="text" placeholder="Enter Product" name="Product" id="Product" required> 
+                
+                    <label for="Model"><b>Model</b></label>
+                    <input type="text" placeholder="Enter Model" name="Model" id="Model" required> 
+                
+                    <label for="Features"><b>Features</b></label>
+                    <input type="text" name="features"placeholder='Enter features' required>
+					<label for="Model"><b>Category</b></label>
+                    <input type="text" placeholder="Enter category" name="Category" id="Category" required> 
+                    
+                    <label for="price"><b>price</b></label>
+                    <input type="text" placeholder="Enter price" name="price" id="price" required> <br> <br>
+                    
+                    <input type="radio" id="Stockin" name="stock" value="1">
+                    <label for="Stockin">Stock in</label>
+                    <input type="radio" id="Stockout" name="stock" value="0">
+                    <label for="Stockout">Stock out</label><br><br>
+					<label for="addimage">upload image</label>
+					<input type="file" name="image" id="image" required><br>
+
+                    
+                
+                
+                    <button type="submit" class="registerbtn">ADD</button>
+                  </div>
+
+                </form>
+                </div>
+
+	
+{% endblock admin %}
+	

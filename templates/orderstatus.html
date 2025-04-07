@@ -1,0 +1,55 @@
+{% extends 'customernav.html' %}
+
+{% load static %}
+
+
+
+{% load getstatus %}
+
+
+
+{% block customer %}
+
+  
+        <!-- Cart Page Start -->
+        <div class="container-fluid py-5" style="padding-top: 250px;color: black;">
+
+            <div class="container py-5 col-lg-10">
+               {% if orders %}
+
+                <div class="table-responsive ">
+                  <table class="table">
+
+                      <h4>hi {{ user }} your order status is here </h4>
+                    
+                      <thead>
+
+                        <tr>
+                          <th scope="col">Order id</th>
+                          <th scope="col">Date</th>
+                          <!-- <th scope="col">Total price</th> -->
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    {% for j in orders %}
+
+                        <tr>
+                            <td>{{j.id}}</td>
+                            <td>{{j.created_date}}</td>
+                            <!-- <td>{{j.created_date}}</td> -->
+                            <td>{% getstatus j.order_status %}</td>
+
+
+                        </tr>  
+                    {% endfor %}
+
+                      </tbody>
+                  </table>  
+                </div>
+                {% endif %}
+            </div>
+        </div>
+ 
+
+{% endblock customer %}

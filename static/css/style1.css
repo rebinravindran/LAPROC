@@ -1,0 +1,130 @@
+
+.image-container{
+    /* background: url('{%static "img/bg.png"%}') center no-repeat; */
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.form-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.form-box{
+    border: 2px solid red;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-box h4 {
+    font-weight: bold;
+}
+
+.form-box .form-input {
+    position: relative;
+}
+
+.form-box .form-input input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;    
+    box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid #ffe0da;
+    border-radius: 40px;
+    outline: none;
+    color: blue;
+    background: transparent;   
+    padding-left: 40px;
+}
+
+.form-box .form-input span {
+    position: absolute;
+    top: 8px;
+    padding-left: 15px;
+    color: red;
+}
+
+.form-box .form-input input::placeholder {
+    color: red;
+    padding-left: 0px;
+}
+
+.form-box .form-input input:focus,
+.form-box .form-input input:valid {
+    border: 2px solid red;
+}
+
+.form-box .form-input input:focus::placeholder {
+    color: green;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: red !important;
+  border:0px;
+}
+
+.form-box button[type="submit"] {
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    background: linear-gradient(45deg, red, blue);
+    color: #fff;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.form-box button[type="submit"]:hover {
+    background: linear-gradient(45deg, green, yellow);
+}
+
+.forget-link , .login-link , .register-link {
+    color: green;
+    font-weight: bold;
+}
+
+.forget-link:hover , .login-link:hover , .register-link:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.form-box .btn-social {
+    color: white;
+    border: 0;
+}
+
+.form-box .btn-facebook {
+    background: #4866a8;
+}
+
+.form-box .btn-google {
+    background: #da3f34;
+}
+
+.form-box .btn-twitter {
+    background: #33ccff;
+}
+
+.form-box .btn-facebook:hover {
+    color: white;
+    background: hsla(221, 40%, 40%, 1);
+}
+
+.form-box .btn-google:hover {
+    color: white;
+    background: hsla(4, 59%, 47%, 1);
+}
+
+.form-box .btn-twitter:hover {
+    color: white;
+    background: hsla(195, 78%, 54%, 1);
+}

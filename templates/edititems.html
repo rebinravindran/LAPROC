@@ -1,0 +1,106 @@
+{% extends 'admin.html' %}
+
+{% block admin %}
+
+
+
+<style>
+
+    * {
+      box-sizing: border-box;
+      color: #000000;
+    }
+    
+    /* Add padding to containers */
+    .container1 {
+      padding-top: 10px;
+      padding-left: 125px;
+      background-color: rgb(255, 255, 255);
+    }
+    
+    /* Full-width input fields */
+    input[type=text], input[type=password],input[type=file] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #ddd;
+      border-radius: 20px;
+    
+      overflow: hidden;
+    }
+    
+    
+    input[type=text]:focus, input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+    
+    /* Overwrite default styles of hr */
+    
+    /* Set a style for the submit button */
+    .registerbtn {
+    
+      padding-left: 50px;
+      background-color: #000000;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+    
+      width: 20%;
+      opacity: 0.9;
+    }
+    
+    .registerbtn:hover {
+      background-color: crimson;
+      border-radius: 60px;
+      
+    }
+    
+    /* Add a blue text color to links */
+    
+    .cont{
+        width:60%;
+    }
+    
+    /* Set a grey background color and center the text of the "sign in" section */
+    
+    </style>
+
+    
+    <form action="/updateitemss/{{data.id}}" method="post" class="cont" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container1">
+
+            <label for="model"><b>model name</b></label>
+            <input type="text" name="brand" value="{{data.brand_name}}"> <br> <br>
+
+            <label for="product"><b>product name</b></label>
+            <input type="text" name="product" value="{{data.product_name}}"> <br> <br>
+
+            <label for="model"><b>model name</b></label>
+            <input type="text" name="model" value="{{data.model_name}}"> <br> <br>
+
+            <label for="feature"><b>feature</b></label>
+            <input type="text" name="feature" value="{{data.Features}}"> <br> <br>
+
+            <label for="category"><b> category</b></label>
+            <input type="text" name="category" value="{{data.category}}"> <br> <br>
+
+            <label for="price"><b>price</b></label>
+            <input type="text" name="price" value="{{data.price}}"> <br> <br>
+
+            <label for="stock"><b>stock</b></label>
+            <input type="text" name="stock" value="{{data.stocks}}"> <br> <br>
+
+            <label for="image"><b>image</b></label>
+            <input type="file" name="image" value="{{data.image.url}}"> <br> <br>
+            
+            <button type="submit">update</button>
+        </div>
+    </form>
+{% endblock admin %}

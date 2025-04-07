@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warning</title>
+
+
+    <!-- <script>
+        window.alert("Invalid Username or Password!");
+
+    </script> -->
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    showAlert();
+});
+
+function showAlert() {
+    var alertBox = document.getElementById('alertBox');
+    alertBox.style.display = 'block';
+}
+
+
+</script>
+
+<style>
+.alert-box {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border: 1px solid red;
+    box-shadow: 0 0 50px rgba(255, 0, 255, 0.9);
+    padding: 20px;
+    
+}
+
+.alert-content {
+    text-align: center;
+    font-size: 80px;
+    font-family: fantasy;
+    color: crimson;
+    width: 800px;
+    
+}
+
+.alert-content p {
+    margin: 0;
+}
+
+</style>
+
+</head>
+<body>
+    
+
+    <div id="alertBox" class="alert-box">
+        <div class="alert-content">
+            <p>Invalid Username or Password!</p>           
+        </div>
+  
+
+    </div>
+
+</body>
+</html>

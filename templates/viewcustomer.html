@@ -1,0 +1,47 @@
+{% extends 'admin.html' %}
+
+{% block admin %}
+<style>
+    table {
+        color: white;
+        width :100%; 
+        background-color:black;
+        text-align: center;
+        font-family: cursive;
+    }
+    th, td {
+
+        padding: 8px;
+        text-align: center; /* Center text horizontally */
+    }
+</style>
+    
+    
+    <table border="2" >
+        <tr>
+            <th>CUSTOMER ID</th>
+            <th>CUSTOMER NAME</th>
+            <th>CUSTOMER MOBILE</th>
+            <th>CUSTOMER EMAIL</th>
+            <th>ACTION</th>
+
+  
+
+        </tr>
+ 
+        {% for i in data %}
+        <tr>
+            <td>{{i.id}}</td>         
+            <td>{{i.name}}</td>
+            <td>{{i.mobile}}</td>
+            <td>{{i.email}}</td>
+            <td><button  class="btn btn-danger"><a href="removecustomer/{{i.id}}">REMOVE</a></button></td>
+             
+        
+        </tr>
+        {% endfor %}
+  
+    </table>
+
+
+{% endblock admin %}
