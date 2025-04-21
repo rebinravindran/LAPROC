@@ -102,3 +102,39 @@ def vieworders(request):
     allorders=Orders.objects.filter(owner=customer).exclude(order_status=Orders.cart_stage)
     op={'orders':allorders}
     return render(request,'orderstatus.html',op)
+
+import razorpay
+from django.views.decorators.csrf import csrf_exempt
+
+import razorpay
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def make_payment(request):
+    if request.method == "POST":
+        user = request.user
+        customer = user.customer_profile
+        
+        total = float(request.POST.get('total'))  # Get total from cart form
+        delivery_charge = 100  # Fixed delivery charge
+        total_with_delivery = total + delivery_charge  # Final total amount
+
+        amount = int(total_with_delivery * 100)  # Razorpay needs amount in paise
+
+        client = razorpay.Client(auth=("rzp_test_JAeLcxoJpwFjEq", "PvjOeaEQA5b2gH4XHxEGEhMB"))
+
+        payment = client.order.create({
+            'amount': amount,
+            'currency': 'INR',
+            'payment_capture': '1'
+        })
+
+        context = {
+            'total': total,
+            'payment': payment
+        }
+
+        return render(request, 'payment.html', context)
+
+    return redirect('cartpage')
+
