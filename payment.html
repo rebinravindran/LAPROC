@@ -1,0 +1,141 @@
+{% comment %} {% extends 'customernav.html' %}
+
+
+{% block customer %} {% endcomment %}
+
+
+{% load multiply %}
+{% load gettotal %}
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Make Payment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    {% comment %} <link rel="stylesheet" href="{% static 'css/profile.css' %}"> {% endcomment %}
+
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f8fb;
+            {% comment %} margin-top: 300px; {% endcomment %}
+        }
+
+        .profile {
+            padding: 60px 0;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-razorpay {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        h1 {
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .img-fluid {
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="profile">
+    <div class="container">
+        <h1 class="text-center">Make <span style="color:red;">Payment</span></h1>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="{% static './img/payment.jpg' %}" alt="Payment Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <form action="success" method="post">
+                        {% csrf_token %}
+                        <div class="card-body">
+
+                            <p>Order ID: {{ payment.id }}</p>
+                            <div class="d-flex justify-content-between">
+                                <h4 class="card-title">Price:</h4>
+                                <h4 class="card-title">₹ {{ total }}</h4>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">Delivery Charge:</h5>
+                                <h5 class="card-title">₹ 100</h5>
+                            </div>
+
+                            <hr>
+
+                                <!-- Total -->
+                                <div class="d-flex justify-content-between mt-2">
+                                    <h4 class="card-title text-primary">Total Amount:</h4>
+                                    <h4 class="card-title text-primary">₹ {{ total|add:"100" }}</h4>
+                                </div>
+                                                            
+                        </div>
+                        
+
+
+
+
+                        <!-- Razorpay Script -->
+                        <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                data-key="rzp_test_JAeLcxoJpwFjEq"
+                                data-amount="50000"
+                                data-currency="INR"
+                                data-order_id="{{ payment.id }}"                       
+                                data-buttontext="Pay Now"
+                                data-name="Professional Cipher"
+                                data-description="Django and Data Science"
+                                data-image="https://example.com/your_logo.jpg"
+                                data-prefill.name="PC"
+                                data-prefill.email="pc@studygyaan.com"
+                                data-theme.color="#03c04a"
+                                class="btn btn-success btn-razorpay">
+                        </script>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+{% comment %} {% endblock customer %} {% endcomment %}
