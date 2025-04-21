@@ -106,10 +106,13 @@
                               <!-- <p class="mb-0 pe-4"><b>$ {% gettotal cart %}</b></p> -->
                           </div>
                           <div>
-                            <form method="post" action="{% url 'checkout_cart' %}" enctype="multipart/form-data">
+                            <form method="post" action="{% url 'make_payment' %}" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <input type="hidden" name="total" id="" value="{% gettotal cart %}">
-                          <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="submit">PLACE ORDER</button>
+                                <button class="btn rounded-pill px-4 py-3 text-uppercase mb-4 ms-4 border-0 text-white animate-btn" 
+                                style="background-color: #b30000;" type="submit">
+                            PLACE ORDER
+                        </button>
         					</form>
                         </div>
                       </div>
